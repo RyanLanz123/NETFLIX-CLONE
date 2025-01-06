@@ -16,7 +16,7 @@ const Login = () => {
            Name" />:<></>}
           <input type="email" placeholder="Email" />
           <input type="password" placeholder="Password" />
-          <button type="submit">Sign In</button>
+          <button>{signState}</button>
           {/* Remember Me and Need Help Section */}
           <div className="form-help">
             <div className="remember">
@@ -27,8 +27,10 @@ const Login = () => {
           </div>
         </form>
         <div className="form-switch">
-          <p>New To Netflix? <span>Sign Up Now</span></p>
-          <p>Already Registered? <span>Sign In Now</span></p>
+          {signState==="Sign In"?
+          <p>New To Netflix? <span onClick={()=>{setSignState("Sign Up")}}>Sign Up Now</span></p>:
+          <p>Already Registered? <span onClick={()=>{setSignState("Sign Now")}}>Sign In Now</span></p>
+        }
         </div>
       </div>
     </div>
